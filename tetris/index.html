@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2DNRQ08ZW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-S2DNRQ08ZW');
+    </script>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+    <link rel="stylesheet" href="app.css">
+    <script src="app.js"></script>
+</head>
+
+
+<body>
+    <div class="container">
+        <h3>Score: <span id="score">0</span></h3>
+        <button id="back-button" onclick="window.location.href='../index.html'">Back</button>
+        <button id="start-button">Start/Pause</button>
+        <div class="grid"></div>
+        <div class="mobile-controls">
+            <button id="left-button">◀️</button>
+            <button id="rotate-button">🔄</button>
+            <button id="right-button">▶️</button>
+            <button id="drop-button">⏬</button>
+        </div>
+        <div class="mini-grid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</body>
+
+</html>

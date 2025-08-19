@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2DNRQ08ZW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-S2DNRQ08ZW');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Flappy Bird</title>
+    <link rel="stylesheet" href="app.css">
+    <style>
+        .back-home {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back-home">
+        <a href="../index.html"><button id="backHomeBtn">Back to all games</button></a>
+    </div>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+        <div class="game-ui">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="high-score">High Score: <span id="highScore">0</span></div>
+        </div>
+        <div class="game-over" id="gameOver">
+            <h2>Game Over!</h2>
+            <p>Score: <span id="finalScore">0</span></p>
+            <button id="restartBtn">Play Again</button>
+        </div>
+        <div class="start-screen" id="startScreen">
+            <h1>Retro Flappy Bird</h1>
+            <p>Press SPACE or click to flap!</p>
+            <button id="startBtn">Start Game</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

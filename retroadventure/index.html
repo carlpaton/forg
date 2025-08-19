@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Adventure</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <!-- Back button -->
+      <div class="header">
+        <a href="../index.html" class="back-btn">← Back</a>
+        <h1 class="game-title">Retro Adventure</h1>
+      </div>
+
+      <!-- Game canvas and UI -->
+      <div class="game-area">
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+        <!-- Game UI overlay -->
+        <div class="game-ui">
+          <div class="hud">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="high-score">High: <span id="highScore">0</span></div>
+            <div class="level">Level: <span id="level">1</span></div>
+            <div class="lives">Lives: <span id="lives">3</span></div>
+            <div class="crystals">Crystals: <span id="crystals">0</span></div>
+          </div>
+        </div>
+
+        <!-- Mobile controls -->
+        <div class="mobile-controls" id="mobileControls">
+          <div class="d-pad">
+            <button class="control-btn" id="leftBtn">←</button>
+            <button class="control-btn" id="rightBtn">→</button>
+          </div>
+          <div class="action-buttons">
+            <button class="control-btn jump-btn" id="jumpBtn">Jump</button>
+            <button class="control-btn action-btn" id="actionBtn">
+              Action
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game over screen -->
+      <div class="game-over-screen" id="gameOverScreen" style="display: none">
+        <div class="game-over-content">
+          <h2 id="gameOverTitle">Game Over!</h2>
+          <p id="gameOverMessage">Your adventure ends here...</p>
+          <p class="final-score">Final Score: <span id="finalScore">0</span></p>
+          <p
+            class="high-score-message"
+            id="highScoreMessage"
+            style="display: none"
+          >
+            🎉 NEW HIGH SCORE! 🎉
+          </p>
+          <p
+            class="previous-high-score"
+            id="previousHighScore"
+            style="display: none"
+          >
+            Previous High Score: <span id="previousHighScoreValue">0</span>
+          </p>
+          <button class="restart-btn" id="restartBtn">Restart Adventure</button>
+        </div>
+      </div>
+
+      <!-- Pause screen -->
+      <div class="pause-screen" id="pauseScreen" style="display: none">
+        <div class="pause-content">
+          <h2>Paused</h2>
+          <p>Press SPACE or tap to continue</p>
+        </div>
+      </div>
+
+      <!-- Game Objective -->
+      <div class="game-objective">
+        <h3>Game Objective</h3>
+        <div class="objective-content">
+          <p>
+            <strong>Your Mission:</strong> Help the Retro Brothers complete
+            their adventure!
+          </p>
+          <div class="objective-list">
+            <div class="objective-item">
+              <span class="objective-icon">💎</span>
+              <span>Collect ALL crystals in each level to unlock the GOAL</span>
+            </div>
+            <div class="objective-item">
+              <span class="objective-icon">🏆</span>
+              <span
+                >Reach the golden GOAL block to advance to the next level</span
+              >
+            </div>
+            <div class="objective-item">
+              <span class="objective-icon">⚔️</span>
+              <span>Jump on enemies to defeat them and earn points</span>
+            </div>
+            <div class="objective-item">
+              <span class="objective-icon">🔧</span>
+              <span>Activate switches to open doors and solve puzzles</span>
+            </div>
+            <div class="objective-item">
+              <span class="objective-icon">🪙</span>
+              <span>Collect coins for bonus points and higher scores</span>
+            </div>
+          </div>
+          <p class="objective-tip">
+            <em
+              >Tip: Use your double jump to reach high platforms and avoid
+              enemies!</em
+            >
+          </p>
+        </div>
+      </div>
+
+      <!-- Controls info -->
+      <div class="controls-info">
+        <h3>Game Controls</h3>
+        <div class="controls-grid">
+          <div class="control-section">
+            <h4>Desktop:</h4>
+            <p>Arrow Keys - Move left/right</p>
+            <p>Space Bar - Jump (Double Jump Available!)</p>
+            <p>Enter - Action/Interact</p>
+            <p>P - Pause</p>
+          </div>
+          <div class="control-section">
+            <h4>Mobile:</h4>
+            <p>Touch the on-screen controls</p>
+            <p>Tap Jump button to jump (Double Jump!)</p>
+            <p>Use Action button to interact</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

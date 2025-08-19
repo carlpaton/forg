@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Invaders - Retro Arcade</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div id="ui">
+      <div id="start-screen" class="screen">
+        <h1>SPACE INVADERS</h1>
+        <button id="start-btn">START GAME</button>
+        <p>Arrow keys: Move | Space: Shoot</p>
+      </div>
+      <div id="game-over" class="screen" style="display: none">
+        <h2>GAME OVER</h2>
+        <p id="final-score"></p>
+        <button id="restart-btn">RESTART</button>
+      </div>
+      <div id="victory" class="screen" style="display: none">
+        <h2>VICTORY!</h2>
+        <p id="victory-score"></p>
+        <button id="next-wave-btn">NEXT WAVE</button>
+      </div>
+      <div id="hud">
+        <span id="score">SCORE: 0</span>
+        <span id="lives">LIVES: 3</span>
+        <span id="wave">WAVE: 1</span>
+      </div>
+    </div>
+    <canvas id="game-canvas" width="800" height="600"></canvas>
+    <!-- Always visible Back Button -->
+    <a
+      href="../index.html"
+      id="back-btn-global"
+      class="back-btn"
+      style="position: fixed; top: 20px; left: 20px; z-index: 1000; text-decoration: none; padding: 8px 16px; background: #222; color: #fff; border-radius: 4px; font-weight: bold;"
+    >
+      BACK
+    </a>
+    <!-- Mobile Controls -->
+    <div
+      id="mobile-controls"
+      style="display: none; text-align: center; margin-top: 10px"
+    >
+      <button id="mobile-left" class="mobile-btn">&#8592;</button>
+      <button id="mobile-shoot" class="mobile-btn">&#x25B2;</button>
+      <button id="mobile-right" class="mobile-btn">&#8594;</button>
+    </div>
+    <script src="app.js"></script>
+    <script>
+      // Show mobile controls if on touch device
+      function isTouchDevice() {
+        return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+      }
+      if (isTouchDevice()) {
+        document.getElementById("mobile-controls").style.display = "block";
+      }
+  // No JS needed for back button, now uses anchor link
+      // Mobile controls event listeners
+      document
+        .getElementById("mobile-left")
+        .addEventListener("touchstart", function (e) {
+          e.preventDefault();
+          window.dispatchEvent(
+            new KeyboardEvent("keydown", { key: "ArrowLeft" })
+          );
+        });
+      document
+        .getElementById("mobile-right")
+        .addEventListener("touchstart", function (e) {
+          e.preventDefault();
+          window.dispatchEvent(
+            new KeyboardEvent("keydown", { key: "ArrowRight" })
+          );
+        });
+      document
+        .getElementById("mobile-shoot")
+        .addEventListener("touchstart", function (e) {
+          e.preventDefault();
+          window.dispatchEvent(new KeyboardEvent("keydown", { key: " " }));
+        });
+    </script>
+  </body>
+</html>

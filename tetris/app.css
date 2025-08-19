@@ -1,0 +1,129 @@
+.tetromino-l {
+    background: linear-gradient(135deg, #f90 60%, #c60 100%);
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px #f90, 0 0 2px #fff inset;
+}
+
+.tetromino-z {
+    background: linear-gradient(135deg, #f00 60%, #900 100%);
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px #f00, 0 0 2px #fff inset;
+}
+
+.tetromino-t {
+    background: linear-gradient(135deg, #c3f 60%, #60c 100%);
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px #c3f, 0 0 2px #fff inset;
+}
+
+.tetromino-o {
+    background: linear-gradient(135deg, #ff0 60%, #cc0 100%);
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px #ff0, 0 0 2px #fff inset;
+}
+
+.tetromino-i {
+    background: linear-gradient(135deg, #0ff 60%, #08f 100%);
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px #0ff, 0 0 2px #fff inset;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+
+.grid {
+    width: 200px;
+    height: 400px;
+    background: repeating-linear-gradient(45deg, #222 0px, #222 2px, #333 2px, #333 4px);
+    border: 4px solid #0f0;
+    box-shadow: 0 0 20px #0f0, 0 0 40px #222 inset;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+
+.grid div {
+    height: 20px;
+    width: 20px;
+    font-size: 8px;
+    box-sizing: border-box;
+    border: 1px solid #444;
+}
+
+
+.tetromino {
+    background: linear-gradient(135deg, #0ff 60%, #00f 100%);
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px #0ff, 0 0 2px #fff inset;
+}
+
+
+.taken {
+    background: linear-gradient(135deg, #444 60%, #222 100%);
+    border: 2px solid #0f0;
+    box-shadow: 0 0 4px #0f0 inset;
+}
+
+
+.mini-grid {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    background: repeating-linear-gradient(45deg, #222 0px, #222 2px, #333 2px, #333 4px);
+    border: 2px solid #0f0;
+    box-shadow: 0 0 10px #0f0, 0 0 20px #222 inset;
+    margin-left: 0;
+    margin-top: 20px;
+}
+
+
+.mini-grid div {
+    height: 20px;
+    width: 20px;
+    box-sizing: border-box;
+    border: 1px solid #444;
+}
+
+body {
+    background: linear-gradient(180deg, #222 0%, #111 100%);
+    color: #fff;
+    font-family: 'Press Start 2P', 'Courier New', Courier, monospace;
+    margin: 0;
+    min-height: 100vh;
+}
+
+h3,
+#score {
+    font-family: 'Press Start 2P', 'Courier New', Courier, monospace;
+    color: #0f0;
+    text-shadow: 0 0 4px #0f0;
+}
+
+#start-button,
+#back-button {
+    font-family: 'Press Start 2P', 'Courier New', Courier, monospace;
+    background: #222;
+    color: #0f0;
+    border: 2px solid #0f0;
+    padding: 8px 16px;
+    margin: 10px 5px;
+    cursor: pointer;
+    box-shadow: 0 0 8px #0f0;
+    transition: background 0.2s, color 0.2s;
+}
+
+#start-button:hover,
+#back-button:hover {
+    background: #0f0;
+    color: #222;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');

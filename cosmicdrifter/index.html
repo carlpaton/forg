@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2DNRQ08ZW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-S2DNRQ08ZW');
+    </script>    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmic Drifter</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Cosmic Drifter</h1>
+      <a class="back-link" href="../index.html">&larr; Back</a>
+    </header>
+    <main>
+      <canvas id="gameCanvas" width="480" height="640"></canvas>
+      <div id="mobile-controls" class="controls hidden">
+        <div class="dpad">
+          <button id="up">▲</button>
+          <div>
+            <button id="left">◀</button>
+            <button id="fire">●</button>
+            <button id="right">▶</button>
+          </div>
+          <button id="down">▼</button>
+        </div>
+      </div>
+      <div id="game-over" class="overlay hidden">
+        <h2>Game Over</h2>
+        <button id="restart">Restart</button>
+      </div>
+    </main>
+    <footer>
+      <p id="controls-desc">
+        Desktop: Arrow keys to move, Space to shoot. Mobile: Use on-screen
+        controls.
+      </p>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
