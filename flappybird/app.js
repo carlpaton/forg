@@ -4,9 +4,6 @@ class FlappyBird {
         this.ctx = this.canvas.getContext('2d');
         this.gameState = 'start'; // 'start', 'playing', 'gameOver'
 
-        // Detect mobile device
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
         // Game elements
         this.bird = {
             x: 80,
@@ -14,7 +11,7 @@ class FlappyBird {
             width: 20,
             height: 20,
             velocity: 0,
-            gravity: isMobile ? 0.40 : 0.5, // slower gravity for mobile
+            gravity: 0.5, // single gravity value for all devices
             jumpPower: -8,
             color: '#FFD700'
         };
@@ -36,6 +33,11 @@ class FlappyBird {
         this.startBtn = document.getElementById('startBtn');
         this.restartBtn = document.getElementById('restartBtn');
 
+        this.lastTime = performance.now(); // Track last frame time
+
+        this.birdStarted = false; // Bird only falls after input
+        this.newHighScore = false; // Track if new high score was made
+
         this.init();
     }
 
@@ -50,13 +52,21 @@ class FlappyBird {
         document.addEventListener('keydown', (e) => {
             if (e.code === 'Space') {
                 e.preventDefault();
-                this.handleInput();
+                if (this.gameState === 'gameOver') {
+                    this.restartGame();
+                } else {
+                    this.handleInput();
+                }
             }
         });
 
         // Mouse/touch controls
         this.canvas.addEventListener('click', () => {
-            this.handleInput();
+            if (this.gameState === 'gameOver') {
+                this.restartGame();
+            } else {
+                this.handleInput();
+            }
         });
 
         // Button controls
@@ -70,6 +80,9 @@ class FlappyBird {
     }
 
     handleInput() {
+        if (!this.birdStarted) {
+            this.birdStarted = true;
+        }
         if (this.gameState === 'playing') {
             this.bird.velocity = this.bird.jumpPower;
         }
@@ -93,6 +106,7 @@ class FlappyBird {
         this.pipes = [];
         this.score = 0;
         this.scoreElement.textContent = this.score;
+        this.birdStarted = false;
         this.addPipe();
     }
 
@@ -110,11 +124,13 @@ class FlappyBird {
         });
     }
 
-    updateBird() {
+    updateBird(dt) {
         if (this.gameState !== 'playing') return;
+        if (!this.birdStarted) return; // Don't fall until input
 
-        this.bird.velocity += this.bird.gravity;
-        this.bird.y += this.bird.velocity;
+        // Gravity and velocity are per second, so multiply by dt
+        this.bird.velocity += this.bird.gravity * 60 * dt;
+        this.bird.y += this.bird.velocity * dt * 60;
 
         // Check ground collision
         if (this.bird.y + this.bird.height > this.canvas.height - 100) {
@@ -128,13 +144,14 @@ class FlappyBird {
         }
     }
 
-    updatePipes() {
+    updatePipes(dt) {
         if (this.gameState !== 'playing') return;
+        if (!this.birdStarted) return; // Don't move pipes until input
 
         // Move pipes
         for (let i = this.pipes.length - 1; i >= 0; i--) {
             const pipe = this.pipes[i];
-            pipe.x -= this.pipeSpeed;
+            pipe.x -= this.pipeSpeed * dt * 60;
 
             // Remove pipes that are off screen
             if (pipe.x + this.pipeWidth < 0) {
@@ -188,14 +205,33 @@ class FlappyBird {
 
     gameOver() {
         this.gameState = 'gameOver';
-
+        this.newHighScore = false;
         // Update high score
         if (this.score > this.highScore) {
             this.highScore = this.score;
             this.highScoreElement.textContent = this.highScore;
             localStorage.setItem('flappyHighScore', this.highScore);
+            this.newHighScore = true;
+            // Show high score message in game over screen
+            const gameOverDiv = document.getElementById('gameOver');
+            let highScoreMsg = document.getElementById('highScoreMsg');
+            if (!highScoreMsg) {
+                highScoreMsg = document.createElement('div');
+                highScoreMsg.id = 'highScoreMsg';
+                highScoreMsg.style.color = '#FFD700';
+                highScoreMsg.style.fontSize = '1.5em';
+                highScoreMsg.style.fontWeight = 'bold';
+                highScoreMsg.style.marginTop = '10px';
+                gameOverDiv.appendChild(highScoreMsg);
+            }
+            highScoreMsg.textContent = '🎉 New High Score! 🎉';
+        } else {
+            // Remove high score message if not a new high score
+            const highScoreMsg = document.getElementById('highScoreMsg');
+            if (highScoreMsg) {
+                highScoreMsg.textContent = '';
+            }
         }
-
         this.finalScoreElement.textContent = this.score;
         this.gameOverScreen.style.display = 'flex';
     }
@@ -290,13 +326,43 @@ class FlappyBird {
         }
 
         this.drawBird();
+
+        // Show message if waiting for user input
+        if (this.gameState === 'playing' && !this.birdStarted) {
+            this.ctx.save();
+            this.ctx.font = '28px Arial';
+            this.ctx.fillStyle = '#fff';
+            this.ctx.textAlign = 'center';
+            this.ctx.strokeStyle = '#000';
+            this.ctx.lineWidth = 3;
+            const msg = 'Press SPACE/tap/click to start!';
+            this.ctx.strokeText(msg, this.canvas.width / 2, this.canvas.height / 2 - 40);
+            this.ctx.fillText(msg, this.canvas.width / 2, this.canvas.height / 2 - 40);
+            this.ctx.restore();
+        }
+        // Show new high score message on game over
+        if (this.gameState === 'gameOver' && this.newHighScore) {
+            this.ctx.save();
+            this.ctx.font = '32px Arial';
+            this.ctx.fillStyle = '#FFD700';
+            this.ctx.textAlign = 'center';
+            this.ctx.strokeStyle = '#000';
+            this.ctx.lineWidth = 4;
+            const msg = 'New High Score!';
+            this.ctx.strokeText(msg, this.canvas.width / 2, this.canvas.height / 2 - 80);
+            this.ctx.fillText(msg, this.canvas.width / 2, this.canvas.height / 2 - 80);
+            this.ctx.restore();
+        }
     }
 
     gameLoop() {
-        this.updateBird();
-        this.updatePipes();
+        const now = performance.now();
+        let dt = (now - this.lastTime) / 1000; // seconds
+        dt = Math.min(dt, 0.05); // Clamp to max 50ms/frame
+        this.lastTime = now;
+        this.updateBird(dt);
+        this.updatePipes(dt);
         this.render();
-
         requestAnimationFrame(() => this.gameLoop());
     }
 }
