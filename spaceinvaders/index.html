@@ -5,21 +5,52 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2DNRQ08ZW"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-S2DNRQ08ZW');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Space Invaders</title>
+    <title>Space Invaders - Retro Arcade Game</title>
+    <meta name="description"
+        content="Play Space Invaders, a free retro arcade game. Shoot aliens, defend your base, and beat your high score!" />
+    <meta name="keywords" content="Space Invaders, retro game, arcade, shooter, online game, free game" />
+    <link rel="canonical" href="https://freeonlineretrogames.com/spaceinvaders/index.html" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Space Invaders - Retro Arcade Game" />
+    <meta property="og:description" content="Shoot aliens and defend your base in Space Invaders! Play free online." />
+    <meta property="og:type" content="game" />
+    <meta property="og:url" content="https://freeonlineretrogames.com/spaceinvaders/index.html" />
+    <meta property="og:image" content="https://freeonlineretrogames.com/assets/spaceinvaders-og.png" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Space Invaders - Retro Arcade Game" />
+    <meta name="twitter:description" content="Shoot aliens and defend your base in Space Invaders! Play free online." />
+    <meta name="twitter:image" content="https://freeonlineretrogames.com/assets/spaceinvaders-og.png" />
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "VideoGame",
+            "name": "Space Invaders",
+            "url": "https://freeonlineretrogames.com/spaceinvaders/index.html",
+            "image": "https://freeonlineretrogames.com/assets/spaceinvaders-og.png",
+            "description": "Shoot aliens, defend your base, and beat your high score in Space Invaders! Play free online.",
+            "genre": "Shooter",
+            "applicationCategory": "Game",
+            "operatingSystem": "Browser"
+        }
+        </script>
     <link rel="stylesheet" href="app.css">
 </head>
 
 <body>
     <h1>Space Invaders</h1>
+    <h2>Shoot aliens, defend your base, and beat your high score!</h2>
     <a href="../index.html" class="back-btn">&larr; Back</a>
-    <canvas id="gameCanvas" width="480" height="640"></canvas>
+    <canvas id="gameCanvas" width="480" height="640" aria-label="Space Invaders game canvas"></canvas>
     <script src="app.js"></script>
 </body>
 

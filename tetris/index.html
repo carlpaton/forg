@@ -5,49 +5,85 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2DNRQ08ZW"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-S2DNRQ08ZW');
-    </script>    
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tetris</title>
+    <title>Tetris - Classic Puzzle Game</title>
+    <meta name="description"
+        content="Play Tetris, the classic puzzle game. Stack blocks, clear lines, and challenge your skills for a high score!" />
+    <meta name="keywords" content="Tetris, puzzle game, classic, retro, online game, free game" />
+    <link rel="canonical" href="https://freeonlineretrogames.com/tetris/index.html" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tetris - Classic Puzzle Game" />
+    <meta property="og:description" content="Stack blocks and clear lines in Tetris! Play free online." />
+    <meta property="og:type" content="game" />
+    <meta property="og:url" content="https://freeonlineretrogames.com/tetris/index.html" />
+    <meta property="og:image" content="https://freeonlineretrogames.com/assets/tetris-og.png" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tetris - Classic Puzzle Game" />
+    <meta name="twitter:description" content="Stack blocks and clear lines in Tetris! Play free online." />
+    <meta name="twitter:image" content="https://freeonlineretrogames.com/assets/tetris-og.png" />
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "VideoGame",
+            "name": "Tetris",
+            "url": "https://freeonlineretrogames.com/tetris/index.html",
+            "image": "https://freeonlineretrogames.com/assets/tetris-og.png",
+            "description": "Stack blocks, clear lines, and challenge your skills for a high score in Tetris! Play free online.",
+            "genre": "Puzzle",
+            "applicationCategory": "Game",
+            "operatingSystem": "Browser"
+        }
+        </script>
     <link rel="stylesheet" href="app.css">
     <script src="app.js"></script>
 </head>
 
 
 <body>
-    <div class="container">
-        <h3>Score: <span id="score">0</span></h3>
-        <button id="back-button" onclick="window.location.href='../index.html'">Back</button>
-        <button id="start-button">Start/Pause</button>
-        <div class="grid"></div>
-        <div class="mobile-controls">
-            <button id="left-button">◀️</button>
-            <button id="rotate-button">🔄</button>
-            <button id="right-button">▶️</button>
-            <button id="drop-button">⏬</button>
+    <main>
+        <h1>Tetris</h1>
+        <h2>Stack blocks, clear lines, and challenge your skills for a high score!</h2>
+        <div class="container">
+            <h3>Score: <span id="score">0</span></h3>
+            <button id="back-button" onclick="window.location.href='../index.html'">Back</button>
+            <button id="start-button">Start/Pause</button>
+            <div class="grid" aria-label="Tetris game grid"></div>
+            <div class="mobile-controls">
+                <button id="left-button" aria-label="Move Left">◀️</button>
+                <button id="rotate-button" aria-label="Rotate">🔄</button>
+                <button id="right-button" aria-label="Move Right">▶️</button>
+                <button id="drop-button" aria-label="Drop">⏬</button>
+            </div>
+            <div class="mini-grid" aria-label="Next Tetris piece preview">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
-        <div class="mini-grid">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+    </main>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    </div>
     </div>
 </body>
 

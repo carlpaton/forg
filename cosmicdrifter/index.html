@@ -1,48 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2DNRQ08ZW"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
-        gtag('config', 'G-S2DNRQ08ZW');
-    </script>    
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cosmic Drifter</title>
-    <link rel="stylesheet" href="app.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Cosmic Drifter</h1>
-      <a class="back-link" href="../index.html">&larr; Back</a>
-    </header>
-    <main>
-      <canvas id="gameCanvas" width="480" height="640"></canvas>
-      <div id="mobile-controls" class="controls hidden">
-        <div class="dpad">
-          <button id="up">▲</button>
-          <div>
-            <button id="left">◀</button>
-            <button id="fire">●</button>
-            <button id="right">▶</button>
-          </div>
-          <button id="down">▼</button>
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2DNRQ08ZW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-S2DNRQ08ZW');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cosmic Drifter - Free Space Adventure Game</title>
+  <meta name="description"
+    content="Play Cosmic Drifter, a free online space adventure game. Drift through the cosmos, dodge obstacles, and master your piloting skills!" />
+  <meta name="keywords" content="Cosmic Drifter, space game, adventure, online game, free game, arcade" />
+  <link rel="canonical" href="https://freeonlineretrogames.com/cosmicdrifter/index.html" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cosmic Drifter - Free Space Adventure Game" />
+  <meta property="og:description" content="Drift through the cosmos in Cosmic Drifter! Play free online." />
+  <meta property="og:type" content="game" />
+  <meta property="og:url" content="https://freeonlineretrogames.com/cosmicdrifter/index.html" />
+  <meta property="og:image" content="https://freeonlineretrogames.com/assets/cosmicdrifter-og.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cosmic Drifter - Free Space Adventure Game" />
+  <meta name="twitter:description" content="Drift through the cosmos in Cosmic Drifter! Play free online." />
+  <meta name="twitter:image" content="https://freeonlineretrogames.com/assets/cosmicdrifter-og.png" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Cosmic Drifter",
+  "url": "https://freeonlineretrogames.com/cosmicdrifter/index.html",
+  "image": "https://freeonlineretrogames.com/assets/cosmicdrifter-og.png",
+      "description": "Drift through the cosmos, dodge obstacles, and master your piloting skills in Cosmic Drifter! Play free online.",
+      "genre": "Adventure",
+      "applicationCategory": "Game",
+      "operatingSystem": "Browser"
+    }
+    </script>
+  <link rel="stylesheet" href="app.css" />
+</head>
+
+<body>
+  <main>
+    <a class="back-link" href="../index.html">&larr; Back</a>
+    <h1>Cosmic Drifter</h1>
+    <h2>Drift through the cosmos, dodge obstacles, and master your piloting skills!</h2>
+    <canvas id="gameCanvas" width="480" height="640" aria-label="Cosmic Drifter game canvas"></canvas>
+    <div id="mobile-controls" class="controls hidden">
+      <div class="dpad">
+        <button id="up" aria-label="Move Up">▲</button>
+        <div>
+          <button id="left" aria-label="Move Left">◀</button>
+          <button id="fire" aria-label="Fire">●</button>
+          <button id="right" aria-label="Move Right">▶</button>
         </div>
+        <button id="down" aria-label="Move Down">▼</button>
       </div>
-      <div id="game-over" class="overlay hidden">
-        <h2>Game Over</h2>
-        <button id="restart">Restart</button>
-      </div>
-    </main>
-    <footer>
-      <p id="controls-desc">
-        Desktop: Arrow keys to move, Space to shoot. Mobile: Use on-screen
-        controls.
-      </p>
-    </footer>
-    <script src="app.js"></script>
-  </body>
+    </div>
+    <div id="game-over" class="overlay hidden">
+      <h2>Game Over</h2>
+      <button id="restart">Restart</button>
+    </div>
+  </main>
+  <footer>
+    <p id="controls-desc">
+      Desktop: Arrow keys to move, Space to shoot. Mobile: Use on-screen
+      controls.
+    </p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+
 </html>

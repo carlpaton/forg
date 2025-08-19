@@ -1,95 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Logic Link - Retro Puzzle Game</title>
-    <link rel="stylesheet" href="app.css" />
-  </head>
-  <body>
-    <div class="game-container">
-      <!-- Back navigation -->
-      <div class="nav-bar">
-        <a href="../index.html" class="back-btn">◄ BACK</a>
-      </div>
 
-      <!-- Game header -->
-      <div class="game-header">
-        <h1 class="game-title">LOGIC LINK</h1>
-        <div class="game-info">
-          <span class="level-display"
-            >Level: <span id="current-level">1</span></span
-          >
-          <span class="moves-display"
-            >Moves: <span id="move-count">0</span></span
-          >
-          <span class="score-display">Score: <span id="score">0</span></span>
-        </div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logic Link - Retro Puzzle Game</title>
+  <meta name="description"
+    content="Play Logic Link, a free retro puzzle game. Connect nodes, solve logic puzzles, and challenge your mind!" />
+  <meta name="keywords" content="Logic Link, puzzle game, retro, logic, online game, free game" />
+  <link rel="canonical" href="https://freeonlineretrogames.com/logiclink/index.html" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Logic Link - Retro Puzzle Game" />
+  <meta property="og:description" content="Connect nodes and solve logic puzzles in Logic Link! Play free online." />
+  <meta property="og:type" content="game" />
+  <meta property="og:url" content="https://freeonlineretrogames.com/logiclink/index.html" />
+  <meta property="og:image" content="https://freeonlineretrogames.com/assets/logiclink-og.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Logic Link - Retro Puzzle Game" />
+  <meta name="twitter:description" content="Connect nodes and solve logic puzzles in Logic Link! Play free online." />
+  <meta name="twitter:image" content="https://freeonlineretrogames.com/assets/logiclink-og.png" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Logic Link",
+  "url": "https://freeonlineretrogames.com/logiclink/index.html",
+  "image": "https://freeonlineretrogames.com/assets/logiclink-og.png",
+      "description": "Connect nodes, solve logic puzzles, and challenge your mind in Logic Link! Play free online.",
+      "genre": "Puzzle",
+      "applicationCategory": "Game",
+      "operatingSystem": "Browser"
+    }
+    </script>
+  <link rel="stylesheet" href="app.css" />
+</head>
 
-      <!-- Game canvas and overlay -->
-      <div class="game-area">
-        <canvas id="game-canvas" width="600" height="400"></canvas>
+<body>
+  <div class="game-container">
+    <!-- Back navigation -->
+    <div class="nav-bar">
+      <a href="../index.html" class="back-btn">◄ BACK</a>
+    </div>
 
-        <!-- Game over overlay -->
-        <div id="game-over-overlay" class="overlay hidden">
-          <div class="overlay-content">
-            <h2 id="game-over-title">Level Complete!</h2>
-            <p id="game-over-message">Great job connecting all the nodes!</p>
-            <div class="stars" id="star-rating"></div>
-            <button id="next-level-btn" class="game-btn">Next Level</button>
-            <button id="restart-level-btn" class="game-btn">
-              Restart Level
-            </button>
-          </div>
-        </div>
-
-        <!-- Pause overlay -->
-        <div id="pause-overlay" class="overlay hidden">
-          <div class="overlay-content">
-            <h2>Game Paused</h2>
-            <button id="resume-btn" class="game-btn">Resume</button>
-            <button id="restart-game-btn" class="game-btn">Restart Game</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile controls -->
-      <div class="mobile-controls" id="mobile-controls">
-        <div class="control-row">
-          <button class="control-btn" id="move-up">▲</button>
-        </div>
-        <div class="control-row">
-          <button class="control-btn" id="move-left">◄</button>
-          <button class="control-btn action-btn" id="select-btn">SELECT</button>
-          <button class="control-btn" id="move-right">►</button>
-        </div>
-        <div class="control-row">
-          <button class="control-btn" id="move-down">▼</button>
-        </div>
-        <div class="control-row">
-          <button class="control-btn utility-btn" id="undo-btn">UNDO</button>
-          <button class="control-btn utility-btn" id="pause-btn">PAUSE</button>
-        </div>
-      </div>
-
-      <!-- Game instructions -->
-      <div class="instructions">
-        <h3>How to Play:</h3>
-        <p>
-          <strong>Desktop:</strong> Use arrow keys to move cursor, spacebar to
-          select/connect nodes
-        </p>
-        <p>
-          <strong>Mobile:</strong> Use on-screen controls or tap nodes directly
-        </p>
-        <p>
-          <strong>Goal:</strong> Connect all matching colored nodes without
-          crossing paths!
-        </p>
+    <!-- Game header -->
+    <div class="game-header">
+      <h1 class="game-title">Logic Link</h1>
+      <h2>Connect nodes, solve logic puzzles, and challenge your mind!</h2>
+      <div class="game-info">
+        <span class="level-display">Level: <span id="current-level">1</span></span>
+        <span class="moves-display">Moves: <span id="move-count">0</span></span>
+        <span class="score-display">Score: <span id="score">0</span></span>
       </div>
     </div>
 
-    <script src="app.js"></script>
-  </body>
+    <!-- Game canvas and overlay -->
+    <div class="game-area">
+      <canvas id="game-canvas" width="600" height="400" aria-label="Logic Link game canvas"></canvas>
+
+      <!-- Game over overlay -->
+      <div id="game-over-overlay" class="overlay hidden">
+        <div class="overlay-content">
+          <h2 id="game-over-title">Level Complete!</h2>
+          <p id="game-over-message">Great job connecting all the nodes!</p>
+          <div class="stars" id="star-rating"></div>
+          <button id="next-level-btn" class="game-btn">Next Level</button>
+          <button id="restart-level-btn" class="game-btn">
+            Restart Level
+          </button>
+        </div>
+      </div>
+
+      <!-- Pause overlay -->
+      <div id="pause-overlay" class="overlay hidden">
+        <div class="overlay-content">
+          <h2>Game Paused</h2>
+          <button id="resume-btn" class="game-btn">Resume</button>
+          <button id="restart-game-btn" class="game-btn">Restart Game</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile controls -->
+    <div class="mobile-controls" id="mobile-controls">
+      <div class="control-row">
+        <button class="control-btn" id="move-up">▲</button>
+      </div>
+      <div class="control-row">
+        <button class="control-btn" id="move-left">◄</button>
+        <button class="control-btn action-btn" id="select-btn">SELECT</button>
+        <button class="control-btn" id="move-right">►</button>
+      </div>
+      <div class="control-row">
+        <button class="control-btn" id="move-down">▼</button>
+      </div>
+      <div class="control-row">
+        <button class="control-btn utility-btn" id="undo-btn">UNDO</button>
+        <button class="control-btn utility-btn" id="pause-btn">PAUSE</button>
+      </div>
+    </div>
+
+    <!-- Game instructions -->
+    <div class="instructions">
+      <h3>How to Play:</h3>
+      <p>
+        <strong>Desktop:</strong> Use arrow keys to move cursor, spacebar to
+        select/connect nodes
+      </p>
+      <p>
+        <strong>Mobile:</strong> Use on-screen controls or tap nodes directly
+      </p>
+      <p>
+        <strong>Goal:</strong> Connect all matching colored nodes without
+        crossing paths!
+      </p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
 </html>

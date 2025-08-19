@@ -1,86 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Space Invaders - Retro Arcade</title>
-    <link rel="stylesheet" href="app.css" />
-  </head>
-  <body>
-    <div id="ui">
-      <div id="start-screen" class="screen">
-        <h1>SPACE INVADERS</h1>
-        <button id="start-btn">START GAME</button>
-        <p>Arrow keys: Move | Space: Shoot</p>
-      </div>
-      <div id="game-over" class="screen" style="display: none">
-        <h2>GAME OVER</h2>
-        <p id="final-score"></p>
-        <button id="restart-btn">RESTART</button>
-      </div>
-      <div id="victory" class="screen" style="display: none">
-        <h2>VICTORY!</h2>
-        <p id="victory-score"></p>
-        <button id="next-wave-btn">NEXT WAVE</button>
-      </div>
-      <div id="hud">
-        <span id="score">SCORE: 0</span>
-        <span id="lives">LIVES: 3</span>
-        <span id="wave">WAVE: 1</span>
-      </div>
-    </div>
-    <canvas id="game-canvas" width="800" height="600"></canvas>
-    <!-- Always visible Back Button -->
-    <a
-      href="../index.html"
-      id="back-btn-global"
-      class="back-btn"
-      style="position: fixed; top: 20px; left: 20px; z-index: 1000; text-decoration: none; padding: 8px 16px; background: #222; color: #fff; border-radius: 4px; font-weight: bold;"
-    >
-      BACK
-    </a>
-    <!-- Mobile Controls -->
-    <div
-      id="mobile-controls"
-      style="display: none; text-align: center; margin-top: 10px"
-    >
-      <button id="mobile-left" class="mobile-btn">&#8592;</button>
-      <button id="mobile-shoot" class="mobile-btn">&#x25B2;</button>
-      <button id="mobile-right" class="mobile-btn">&#8594;</button>
-    </div>
-    <script src="app.js"></script>
-    <script>
-      // Show mobile controls if on touch device
-      function isTouchDevice() {
-        return "ontouchstart" in window || navigator.maxTouchPoints > 0;
-      }
-      if (isTouchDevice()) {
-        document.getElementById("mobile-controls").style.display = "block";
-      }
-  // No JS needed for back button, now uses anchor link
-      // Mobile controls event listeners
-      document
-        .getElementById("mobile-left")
-        .addEventListener("touchstart", function (e) {
-          e.preventDefault();
-          window.dispatchEvent(
-            new KeyboardEvent("keydown", { key: "ArrowLeft" })
-          );
-        });
-      document
-        .getElementById("mobile-right")
-        .addEventListener("touchstart", function (e) {
-          e.preventDefault();
-          window.dispatchEvent(
-            new KeyboardEvent("keydown", { key: "ArrowRight" })
-          );
-        });
-      document
-        .getElementById("mobile-shoot")
-        .addEventListener("touchstart", function (e) {
-          e.preventDefault();
-          window.dispatchEvent(new KeyboardEvent("keydown", { key: " " }));
-        });
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Invaders 2 - Retro Arcade Game</title>
+  <meta name="description"
+    content="Play Space Invaders 2, a free retro arcade game. Defend against waves of aliens, survive, and set new records!" />
+  <meta name="keywords" content="Space Invaders 2, retro game, arcade, shooter, online game, free game" />
+  <link rel="canonical" href="https://freeonlineretrogames.com/spaceinvaders2/index.html" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Space Invaders 2 - Retro Arcade Game" />
+  <meta property="og:description" content="Defend against waves of aliens in Space Invaders 2! Play free online." />
+  <meta property="og:type" content="game" />
+  <meta property="og:url" content="https://freeonlineretrogames.com/spaceinvaders2/index.html" />
+  <meta property="og:image" content="https://freeonlineretrogames.com/assets/spaceinvaders2-og.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Space Invaders 2 - Retro Arcade Game" />
+  <meta name="twitter:description" content="Defend against waves of aliens in Space Invaders 2! Play free online." />
+  <meta name="twitter:image" content="https://freeonlineretrogames.com/assets/spaceinvaders2-og.png" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Space Invaders 2",
+  "url": "https://freeonlineretrogames.com/spaceinvaders2/index.html",
+  "image": "https://freeonlineretrogames.com/assets/spaceinvaders2-og.png",
+      "description": "Defend against waves of aliens, survive, and set new records in Space Invaders 2! Play free online.",
+      "genre": "Shooter",
+      "applicationCategory": "Game",
+      "operatingSystem": "Browser"
+    }
     </script>
-  </body>
+  <link rel="stylesheet" href="app.css" />
+</head>
+
+<body>
+  <div id="ui">
+    <div id="start-screen" class="screen">
+      <h1>Space Invaders 2</h1>
+      <h2>Defend against waves of aliens, survive, and set new records!</h2>
+      <button id="start-btn">START GAME</button>
+      <p>Arrow keys: Move | Space: Shoot</p>
+    </div>
+    <div id="game-over" class="screen" style="display: none">
+      <h2>GAME OVER</h2>
+      <p id="final-score"></p>
+      <button id="restart-btn">RESTART</button>
+    </div>
+    <div id="victory" class="screen" style="display: none">
+      <h2>VICTORY!</h2>
+      <p id="victory-score"></p>
+      <button id="next-wave-btn">NEXT WAVE</button>
+    </div>
+    <div id="hud">
+      <span id="score">SCORE: 0</span>
+      <span id="lives">LIVES: 3</span>
+      <span id="wave">WAVE: 1</span>
+    </div>
+  </div>
+  <canvas id="game-canvas" width="800" height="600" aria-label="Space Invaders 2 game canvas"></canvas>
+  <!-- Always visible Back Button -->
+  <a href="../index.html" id="back-btn-global" class="back-btn"
+    style="position: fixed; top: 20px; left: 20px; z-index: 1000; text-decoration: none; padding: 8px 16px; background: #222; color: #fff; border-radius: 4px; font-weight: bold;">
+    BACK
+  </a>
+  <!-- Mobile Controls -->
+  <div id="mobile-controls" style="display: none; text-align: center; margin-top: 10px">
+    <button id="mobile-left" class="mobile-btn">&#8592;</button>
+    <button id="mobile-shoot" class="mobile-btn">&#x25B2;</button>
+    <button id="mobile-right" class="mobile-btn">&#8594;</button>
+  </div>
+  <script src="app.js"></script>
+  <script>
+    // Show mobile controls if on touch device
+    function isTouchDevice() {
+      return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    }
+    if (isTouchDevice()) {
+      document.getElementById("mobile-controls").style.display = "block";
+    }
+    // No JS needed for back button, now uses anchor link
+    // Mobile controls event listeners
+    document
+      .getElementById("mobile-left")
+      .addEventListener("touchstart", function (e) {
+        e.preventDefault();
+        window.dispatchEvent(
+          new KeyboardEvent("keydown", { key: "ArrowLeft" })
+        );
+      });
+    document
+      .getElementById("mobile-right")
+      .addEventListener("touchstart", function (e) {
+        e.preventDefault();
+        window.dispatchEvent(
+          new KeyboardEvent("keydown", { key: "ArrowRight" })
+        );
+      });
+    document
+      .getElementById("mobile-shoot")
+      .addEventListener("touchstart", function (e) {
+        e.preventDefault();
+        window.dispatchEvent(new KeyboardEvent("keydown", { key: " " }));
+      });
+  </script>
+</body>
+
 </html>

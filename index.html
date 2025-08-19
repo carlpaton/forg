@@ -12,8 +12,46 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Online Retro Games</title>
+    <title>Free Online Retro Games - Play Flappy Bird, Tetris, Space Invaders & More</title>
+    <meta name="description"
+        content="Play free online retro games like Flappy Bird, Tetris, Space Invaders, Retro Adventure, and more. No downloads or registration required!" />
+    <meta name="keywords"
+        content="retro games, free online games, Flappy Bird, Tetris, Space Invaders, Retro Adventure, Cosmic Drifter, Logic Link, Galactic Guts, Astro Jumper" />
+    <link rel="canonical" href="https://freeonlineretrogames.com/index.html" />
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free Online Retro Games - Play Flappy Bird, Tetris, Space Invaders & More" />
+    <meta property="og:description"
+        content="Play free online retro games like Flappy Bird, Tetris, Space Invaders, Retro Adventure, and more. No downloads or registration required!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://freeonlineretrogames.com/index.html" />
+    <meta property="og:image" content="https://freeonlineretrogames.com/assets/retro-games-og.png" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Online Retro Games - Play Flappy Bird, Tetris, Space Invaders & More" />
+    <meta name="twitter:description"
+        content="Play free online retro games like Flappy Bird, Tetris, Space Invaders, Retro Adventure, and more. No downloads or registration required!" />
+    <meta name="twitter:image" content="https://freeonlineretrogames.com/assets/retro-games-og.png" />
+    <!-- Structured Data for all games -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Free Online Retro Games",
+            "url": "https://freeonlineretrogames.com/index.html",
+            "itemListElement": [
+                {"@type": "VideoGame", "name": "Flappy Bird", "url": "https://freeonlineretrogames.com/flappybird/index.html"},
+                {"@type": "VideoGame", "name": "Cosmic Drifter", "url": "https://freeonlineretrogames.com/cosmicdrifter/index.html"},
+                {"@type": "VideoGame", "name": "Logic Link", "url": "https://freeonlineretrogames.com/logiclink/index.html"},
+                {"@type": "VideoGame", "name": "Galactic Guts", "url": "https://freeonlineretrogames.com/galacticguts/index.html"},
+                {"@type": "VideoGame", "name": "Astro Jumper", "url": "https://freeonlineretrogames.com/astrojumper/index.html"},
+                {"@type": "VideoGame", "name": "Space Invaders", "url": "https://freeonlineretrogames.com/spaceinvaders/index.html"},
+                {"@type": "VideoGame", "name": "Space Invaders 2", "url": "https://freeonlineretrogames.com/spaceinvaders2/index.html"},
+                {"@type": "VideoGame", "name": "Tetris", "url": "https://freeonlineretrogames.com/tetris/index.html"},
+                {"@type": "VideoGame", "name": "Retro Adventure", "url": "https://freeonlineretrogames.com/retroadventure/index.html"}
+            ]
+        }
+        </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -53,6 +91,11 @@
             font-size: 3rem;
             color: #2196f3;
         }
+
+        /* Ensure game card h2 headings are not too large */
+        .game-card h2.card-title {
+            font-size: 1.25rem;
+        }
     </style>
 </head>
 
@@ -61,14 +104,14 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-8">
-                    <h1 class="display-4 fw-bold mb-4">
-                        <i class="fas fa-gamepad me-3"></i>
+                    <h1 class="display-4 fw-bold mb-4" id="main-title">
+                        <i class="fas fa-gamepad me-3" aria-hidden="true"></i>
                         Free Online Retro Games
                     </h1>
-                    <p class="lead mb-4">
-                        Play free online retro games directly in your browser. No downloads, no registration
-                        required.<br>
-                        We are constantly adding new games for you to enjoy!
+                    <p class="lead mb-4" id="main-description">
+                        Play free online retro games like <strong>Flappy Bird</strong>, <strong>Tetris</strong>,
+                        <strong>Space Invaders</strong>, <strong>Retro Adventure</strong>, and more directly in your
+                        browser. No downloads, no registration required. We are constantly adding new games for you to enjoy!
                     </p>
                 </div>
             </div>
@@ -83,7 +126,7 @@
                         <div class="mb-3">
                             <i class="fas fa-dove bird-icon"></i>
                         </div>
-                        <h5 class="card-title">Flappy Bird</h5>
+                        <h2 class="card-title">Flappy Bird</h2>
                         <p class="card-text">Guide the bird through pipes and try to get the highest score!</p>
                         <a href="flappybird/index.html" class="btn btn-primary btn-lg">
                             <i class="fas fa-play me-2"></i>
@@ -98,7 +141,7 @@
                         <div class="mb-3">
                             <i class="fas fa-meteor cosmicdrifter-icon"></i>
                         </div>
-                        <h5 class="card-title">Cosmic Drifter</h5>
+                        <h2 class="card-title">Cosmic Drifter</h2>
                         <p class="card-text">Drift through space, avoid obstacles, and shoot for a high score!</p>
                         <a href="cosmicdrifter/index.html" class="btn btn-primary btn-lg">
                             <i class="fas fa-play me-2"></i>
@@ -113,7 +156,7 @@
                         <div class="mb-3">
                             <i class="bi bi-link-45deg" style="font-size: 3rem; color: #ff9800;"></i>
                         </div>
-                        <h5 class="card-title">Logic Link</h5>
+                        <h2 class="card-title">Logic Link</h2>
                         <p class="card-text">Connect matching colored nodes without crossing paths in this retro puzzle
                             game!</p>
                         <a href="logiclink/index.html" class="btn btn-primary btn-lg">
@@ -129,7 +172,7 @@
                         <div class="mb-3">
                             <i class="bi bi-emoji-sunglasses" style="font-size: 3rem; color: #e91e63;"></i>
                         </div>
-                        <h5 class="card-title">Galactic Guts</h5>
+                        <h2 class="card-title">Galactic Guts</h2>
                         <p class="card-text">Battle through the galaxy, defeat alien bosses, and show your guts!</p>
                         <a href="galacticguts/index.html" class="btn btn-primary btn-lg">
                             <i class="fas fa-play me-2"></i>
@@ -144,7 +187,7 @@
                         <div class="mb-3">
                             <i class="bi bi-stars" style="font-size: 3rem; color: #00c6ff;"></i>
                         </div>
-                        <h5 class="card-title">Astro Jumper</h5>
+                        <h2 class="card-title">Astro Jumper</h2>
                         <p class="card-text">Jump between asteroids and reach for the stars in this cosmic platformer!
                         </p>
                         <a href="astrojumper/index.html" class="btn btn-primary btn-lg">
@@ -160,7 +203,7 @@
                         <div class="mb-3">
                             <i class="bi bi-rocket spaceinvaders-icon" style="font-size: 3rem; color: #9c27b0;"></i>
                         </div>
-                        <h5 class="card-title">Space Invaders</h5>
+                        <h2 class="card-title">Space Invaders</h2>
                         <p class="card-text">Defend Earth from waves of alien invaders in this arcade classic!</p>
                         <a href="spaceinvaders/index.html" class="btn btn-primary btn-lg">
                             <i class="fas fa-play me-2"></i>
@@ -175,7 +218,7 @@
                         <div class="mb-3">
                             <i class="bi bi-rocket spaceinvaders-icon" style="font-size: 3rem; color: #ff5722;"></i>
                         </div>
-                        <h5 class="card-title">Space Invaders 2</h5>
+                        <h2 class="card-title">Space Invaders 2</h2>
                         <p class="card-text">A new challenge: defend Earth from even tougher alien waves!</p>
                         <a href="spaceinvaders2/index.html" class="btn btn-primary btn-lg">
                             <i class="fas fa-play me-2"></i>
@@ -190,7 +233,7 @@
                         <div class="mb-3">
                             <i class="bi bi-grid-3x3 tetris-icon"></i>
                         </div>
-                        <h5 class="card-title">Tetris</h5>
+                        <h2 class="card-title">Tetris</h2>
                         <p class="card-text">Stack the blocks and clear lines in this classic puzzle game!</p>
                         <a href="tetris/index.html" class="btn btn-primary btn-lg">
                             <i class="fas fa-play me-2"></i>
@@ -205,7 +248,7 @@
                         <div class="mb-3">
                             <i class="bi bi-controller" style="font-size: 3rem; color: #795548;"></i>
                         </div>
-                        <h5 class="card-title">Retro Adventure</h5>
+                        <h2 class="card-title">Retro Adventure</h2>
                         <p class="card-text">Embark on a classic pixel-art adventure full of challenges and exploration!
                         </p>
                         <a href="retroadventure/index.html" class="btn btn-primary btn-lg">

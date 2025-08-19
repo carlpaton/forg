@@ -1,69 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Galactic Guts - Retro Space Shooter</title>
-    <link rel="stylesheet" href="app.css" />
-  </head>
-  <body>
-    <!-- Back navigation -->
-    <div class="nav-back">
-      <a href="../index.html" class="back-btn">← BACK TO MENU</a>
-    </div>
 
-    <!-- Game container -->
-    <div class="game-container">
-      <!-- Game header -->
-      <div class="game-header">
-        <h1 class="game-title">GALACTIC GUTS</h1>
-        <div class="game-stats">
-          <div class="stat">SCORE: <span id="score">0</span></div>
-          <div class="stat">LEVEL: <span id="level">1</span></div>
-          <div class="stat">LIVES: <span id="lives">3</span></div>
-        </div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galactic Guts - Retro Space Shooter Game</title>
+  <meta name="description"
+    content="Play Galactic Guts, a free retro space shooter game. Blast enemies, survive waves, and conquer the galaxy!" />
+  <meta name="keywords" content="Galactic Guts, space shooter, retro game, arcade, online game, free game" />
+  <link rel="canonical" href="https://freeonlineretrogames.com/galacticguts/index.html" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Galactic Guts - Retro Space Shooter Game" />
+  <meta property="og:description" content="Blast enemies and conquer the galaxy in Galactic Guts! Play free online." />
+  <meta property="og:type" content="game" />
+  <meta property="og:url" content="https://freeonlineretrogames.com/galacticguts/index.html" />
+  <meta property="og:image" content="https://freeonlineretrogames.com/assets/galacticguts-og.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Galactic Guts - Retro Space Shooter Game" />
+  <meta name="twitter:description" content="Blast enemies and conquer the galaxy in Galactic Guts! Play free online." />
+  <meta name="twitter:image" content="https://freeonlineretrogames.com/assets/galacticguts-og.png" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Galactic Guts",
+  "url": "https://freeonlineretrogames.com/galacticguts/index.html",
+  "image": "https://freeonlineretrogames.com/assets/galacticguts-og.png",
+      "description": "Blast enemies, survive waves, and conquer the galaxy in Galactic Guts! Play free online.",
+      "genre": "Shooter",
+      "applicationCategory": "Game",
+      "operatingSystem": "Browser"
+    }
+    </script>
+  <link rel="stylesheet" href="app.css" />
+</head>
 
-      <!-- Game canvas -->
-      <canvas id="gameCanvas" width="800" height="600"></canvas>
+<body>
+  <!-- Back navigation -->
+  <div class="nav-back">
+    <a href="../index.html" class="back-btn">← BACK TO MENU</a>
+  </div>
 
-      <!-- Game over screen -->
-      <div id="gameOverScreen" class="game-over hidden">
-        <div class="game-over-content">
-          <h2>GAME OVER</h2>
-          <p>Final Score: <span id="finalScore">0</span></p>
-          <p>Level Reached: <span id="finalLevel">1</span></p>
-          <button id="restartBtn" class="restart-btn">RESTART GAME</button>
-        </div>
-      </div>
-
-      <!-- Mobile controls -->
-      <div class="mobile-controls" id="mobileControls">
-        <div class="control-row">
-          <button class="control-btn" id="upBtn">↑</button>
-        </div>
-        <div class="control-row">
-          <button class="control-btn" id="leftBtn">←</button>
-          <button class="control-btn" id="downBtn">↓</button>
-          <button class="control-btn" id="rightBtn">→</button>
-        </div>
-        <div class="control-row">
-          <button class="control-btn fire-btn" id="fireBtn">FIRE</button>
-        </div>
-      </div>
-
-      <!-- Game controls info -->
-      <div class="game-controls">
-        <h3>CONTROLS</h3>
-        <p><strong>Desktop:</strong> Arrow keys to move, SPACE to fire</p>
-        <p><strong>Mobile:</strong> Use on-screen controls</p>
-        <p>
-          <strong>Objective:</strong> Destroy enemies, collect power-ups,
-          survive 10 levels!
-        </p>
+  <!-- Game container -->
+  <div class="game-container">
+    <!-- Game header -->
+    <div class="game-header">
+      <h1 class="game-title">Galactic Guts</h1>
+      <h2>Blast enemies, survive waves, and conquer the galaxy!</h2>
+      <div class="game-stats">
+        <div class="stat">SCORE: <span id="score">0</span></div>
+        <div class="stat">LEVEL: <span id="level">1</span></div>
+        <div class="stat">LIVES: <span id="lives">3</span></div>
       </div>
     </div>
 
-    <script src="app.js"></script>
-  </body>
+    <!-- Game canvas -->
+    <canvas id="gameCanvas" width="800" height="600" aria-label="Galactic Guts game canvas"></canvas>
+
+    <!-- Game over screen -->
+    <div id="gameOverScreen" class="game-over hidden">
+      <div class="game-over-content">
+        <h2>GAME OVER</h2>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <p>Level Reached: <span id="finalLevel">1</span></p>
+        <button id="restartBtn" class="restart-btn">RESTART GAME</button>
+      </div>
+    </div>
+
+    <!-- Mobile controls -->
+    <div class="mobile-controls" id="mobileControls">
+      <div class="control-row">
+        <button class="control-btn" id="upBtn">↑</button>
+      </div>
+      <div class="control-row">
+        <button class="control-btn" id="leftBtn">←</button>
+        <button class="control-btn" id="downBtn">↓</button>
+        <button class="control-btn" id="rightBtn">→</button>
+      </div>
+      <div class="control-row">
+        <button class="control-btn fire-btn" id="fireBtn">FIRE</button>
+      </div>
+    </div>
+
+    <!-- Game controls info -->
+    <div class="game-controls">
+      <h3>CONTROLS</h3>
+      <p><strong>Desktop:</strong> Arrow keys to move, SPACE to fire</p>
+      <p><strong>Mobile:</strong> Use on-screen controls</p>
+      <p>
+        <strong>Objective:</strong> Destroy enemies, collect power-ups,
+        survive 10 levels!
+      </p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
 </html>

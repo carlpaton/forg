@@ -1,38 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2DNRQ08ZW"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
-        gtag('config', 'G-S2DNRQ08ZW');
-    </script>    
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Astro Jumper</title>
-    <link rel="stylesheet" href="app.css" />
-  </head>
-  <body>
-    <a href="../index.html" class="back-link">&larr; Back</a>
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2DNRQ08ZW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-S2DNRQ08ZW');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astro Jumper - Play Free Online Game</title>
+  <meta name="description"
+    content="Play Astro Jumper, a free online arcade game. Jump through space, avoid obstacles, and reach new heights!" />
+  <meta name="keywords" content="Astro Jumper, arcade game, online game, space, jumping, free game" />
+  <link rel="canonical" href="https://freeonlineretrogames.com/astrojumper/index.html" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Astro Jumper - Play Free Online Game" />
+  <meta property="og:description" content="Jump through space in Astro Jumper! Play free online." />
+  <meta property="og:type" content="game" />
+  <meta property="og:url" content="https://freeonlineretrogames.com/astrojumper/index.html" />
+  <meta property="og:image" content="https://freeonlineretrogames.com/assets/astrojumper-og.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Astro Jumper - Play Free Online Game" />
+  <meta name="twitter:description" content="Jump through space in Astro Jumper! Play free online." />
+  <meta name="twitter:image" content="https://freeonlineretrogames.com/assets/astrojumper-og.png" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Astro Jumper",
+  "url": "https://freeonlineretrogames.com/astrojumper/index.html",
+  "image": "https://freeonlineretrogames.com/assets/astrojumper-og.png",
+      "description": "Jump through space, avoid obstacles, and reach new heights in Astro Jumper! Play free online.",
+      "genre": "Arcade",
+      "applicationCategory": "Game",
+      "operatingSystem": "Browser"
+    }
+    </script>
+  <link rel="stylesheet" href="app.css" />
+</head>
+
+<body>
+  <a href="../index.html" class="back-link">&larr; Back</a>
+  <main>
+    <h1>Astro Jumper</h1>
+    <h2>Jump through space, avoid obstacles, and reach new heights!</h2>
     <div id="game-container">
-      <canvas id="gameCanvas" width="360" height="640"></canvas>
+      <canvas id="gameCanvas" width="360" height="640" aria-label="Astro Jumper game canvas"></canvas>
       <div id="mobile-controls" style="display: none">
-        <button id="left-btn">&#8592;</button>
-        <button id="jump-btn">&#8679;</button>
-        <button id="right-btn">&#8594;</button>
+        <button id="left-btn" aria-label="Move Left">&#8592;</button>
+        <button id="jump-btn" aria-label="Jump">&#8679;</button>
+        <button id="right-btn" aria-label="Move Right">&#8594;</button>
       </div>
     </div>
-    <script src="app.js"></script>
-    <script>
-      // Show mobile controls if touch device
-      function isTouchDevice() {
-        return "ontouchstart" in window || navigator.maxTouchPoints > 0;
-      }
-      document.getElementById("mobile-controls").style.display = isTouchDevice()
-        ? "block"
-        : "none";
-    </script>
-  </body>
+  </main>
+  <script src="app.js"></script>
+  <script>
+    // Show mobile controls if touch device
+    function isTouchDevice() {
+      return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    }
+    document.getElementById("mobile-controls").style.display = isTouchDevice()
+      ? "block"
+      : "none";
+  </script>
+</body>
+
 </html>

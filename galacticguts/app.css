@@ -66,6 +66,7 @@ body {
   from {
     text-shadow: 0 0 20px #ff0066, 0 0 40px #ff0066;
   }
+
   to {
     text-shadow: 0 0 30px #ff0066, 0 0 60px #ff0066;
   }
@@ -122,7 +123,7 @@ body {
 
 .game-over h2 {
   color: #ff0066;
-  font-size: 36px;
+  font-size: 1.25rem;
   margin-bottom: 20px;
   text-shadow: 0 0 20px #ff0066;
 }

@@ -21,13 +21,11 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 255, 65, 0.03) 2px,
-    rgba(0, 255, 65, 0.03) 4px
-  );
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 65, 0.03) 2px,
+      rgba(0, 255, 65, 0.03) 4px);
   pointer-events: none;
   z-index: 1000;
 }
@@ -82,6 +80,7 @@ body::before {
   from {
     text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
   }
+
   to {
     text-shadow: 0 0 20px #00ff41, 0 0 30px #00ff41, 0 0 40px #00ff41;
   }
@@ -147,7 +146,7 @@ body::before {
 
 .overlay-content h2 {
   color: #00ff41;
-  font-size: 32px;
+  font-size: 1.25rem;
   margin-bottom: 15px;
   text-shadow: 0 0 10px #00ff41;
 }
