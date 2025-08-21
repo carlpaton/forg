@@ -5,9 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Flappy Bird Score!</title>
+
+    <!--
+        This is a placeholder for the URL to be shared. In a real-world scenario, a server-side script
+        would dynamically insert the full URL here, including the score parameter.
+    -->
+    <meta property="og:url" content="https://freeonlineretrogames.com/flappybird-share/?score=--SCORE--">
+
+    <!-- The title for the social media preview -->
     <meta property="og:title" content="My Flappy Bird Score!">
-    <meta property="og:description" id="og-description" content="Check out my Flappy Bird score! How high can you get?">
+
+    <!-- The description for the social media preview. The text 'My Flappy Bird score is --' will be updated dynamically on the client-side for the user, but the crawler will see the default. A server-side solution would populate this correctly. -->
+    <meta property="og:description" id="og-description" content="My Flappy Bird score is --. How high can you get?">
+
+    <!-- The image for the social media preview. Since crawlers don't run JS, this must be a static image. -->
     <meta property="og:image" content="https://placehold.co/1200x630/667eea/fff?text=Flappy+Bird+Share+Page">
+
+    <!-- Link to the custom retro-style font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <style>
         /* Import the retro-style font from Google Fonts */
