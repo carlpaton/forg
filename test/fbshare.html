@@ -4,22 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Flappy Bird Score!</title>
+    <title>I Got a New High Score!</title>
 
-    <!--
-        This is a placeholder for the URL to be shared. In a real-world scenario, a server-side script
-        would dynamically insert the full URL here, including the score parameter.
-    -->
-    <meta property="og:url" content="https://freeonlineretrogames.com/flappybird-share/?score=--SCORE--">
-
-    <!-- The title for the social media preview -->
-    <meta property="og:title" content="My Flappy Bird Score!">
-
-    <!-- The description for the social media preview. The text 'My Flappy Bird score is --' will be updated dynamically on the client-side for the user, but the crawler will see the default. A server-side solution would populate this correctly. -->
-    <meta property="og:description" id="og-description" content="My Flappy Bird score is --. How high can you get?">
-
-    <!-- The image for the social media preview. Since crawlers don't run JS, this must be a static image. -->
-    <meta property="og:image" content="https://placehold.co/1200x630/667eea/fff?text=Flappy+Bird+Share+Page">
+    <!-- Social Media Open Graph Meta Tags -->
+    <meta property="og:url" content="https://freeonlineretrogames.com/flappybird-share/">
+    <meta property="og:title" content="I Got a New High Score in Flappy Bird!">
+    <meta property="og:description" content="I just beat my high score in Flappy Bird! Think you can beat me?">
+    <meta property="og:image" content="https://placehold.co/1200x630/87CEEB/000?text=Flappy+Bird+New+High+Score">
 
     <!-- Link to the custom retro-style font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
@@ -61,7 +52,7 @@
             flex-direction: column;
             overflow: hidden;
         }
-        
+
         /* Adds a retro scanlines effect using a pseudo-element */
         .game-container::before {
             content: '';
@@ -77,6 +68,37 @@
                     rgba(0, 0, 0, 0.1) 4px);
             pointer-events: none;
             z-index: 30;
+        }
+
+        /* Styling for a prominent high score badge */
+        .high-score-badge {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #FFD700;
+            color: #D2691E;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid #000;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 0px #fff;
+            z-index: 25;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1) translateX(-50%);
+            }
+
+            50% {
+                transform: scale(1.05) translateX(-50%);
+            }
+
+            100% {
+                transform: scale(1) translateX(-50%);
+            }
         }
 
         /* Basic styling for a decorative bird element */
@@ -111,7 +133,7 @@
         .pipe.bottom {
             bottom: 0;
         }
-        
+
         /* Main container for the score display and text */
         .score-display {
             color: white;
@@ -133,7 +155,7 @@
             font-size: 1em;
             line-height: 1.5;
         }
-        
+
         /* Styling for the score value itself */
         .score-value {
             font-size: 3em;
@@ -154,6 +176,7 @@
             text-shadow: 1px 1px 0px #000;
             box-shadow: 0 4px 0px #2C9B92;
             text-decoration: none;
+            font-size: 1em;
         }
 
         .share-button:hover {
@@ -181,9 +204,14 @@
             .score-display p {
                 font-size: 0.8em;
             }
-            
+
             .score-value {
                 font-size: 2em;
+            }
+
+            .high-score-badge {
+                font-size: 1em;
+                padding: 8px 16px;
             }
         }
     </style>
@@ -192,45 +220,22 @@
 <body>
     <!-- The main game container, designed to look like the game screen -->
     <div class="game-container">
+        <!-- New High Score badge -->
+        <div class="high-score-badge">NEW HIGH SCORE!</div>
+
         <!-- Static bird and pipe elements for visual flair -->
         <div class="bird"></div>
         <div class="pipe top" style="height: 250px; right: 80px;"></div>
         <div class="pipe bottom" style="height: 150px; right: 80px;"></div>
-        
+
         <!-- The score display area -->
         <div class="score-display">
-            <h1>My Flappy Bird Score</h1>
-            <p>I scored:</p>
-            <div class="score-value" id="scoreValue">--</div>
-            <p>How high can you get?</p>
-            <a href="https://freeonlineretrogames.com/flappybird/" class="share-button">Play Flappy Bird</a>
+            <h1>I Scored:</h1>
+            <div class="score-value">--</div>
+            <p>Can you beat my score?</p>
+            <a href="https://freeonlineretrogames.com/flappybird/" class="share-button">PLAY THE GAME</a>
         </div>
     </div>
-
-    <!-- JavaScript to parse the URL and display the score -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Get the URL parameters
-            const params = new URLSearchParams(window.location.search);
-            const score = params.get('score');
-            
-            // Get the HTML element to display the score
-            const scoreElement = document.getElementById('scoreValue');
-            const ogDescription = document.getElementById('og-description');
-            
-            // Update the score on the page if it exists in the URL
-            if (score) {
-                scoreElement.textContent = score;
-                // Update the og:description for a text-based preview
-                const newDescription = `My Flappy Bird score is ${score}. How high can you get?`;
-                ogDescription.setAttribute('content', newDescription);
-            } else {
-                scoreElement.textContent = 'N/A';
-                const newDescription = `I just played Flappy Bird! Can you beat my score?`;
-                ogDescription.setAttribute('content', newDescription);
-            }
-        });
-    </script>
 </body>
 
 </html>
