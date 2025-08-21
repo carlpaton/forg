@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query String Example</title>
+</head>
+<body>
+    <h1>Value from Query String</h1>
+    <p id="displayValue">No value found in the URL.</p>
+
+    <script>
+        // Get the value of the 'name' parameter from the URL query string.
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+
+        // Check if the 'name' parameter exists.
+        if (name) {
+            // Find the <p> element with the ID 'displayValue' and update its content.
+            document.getElementById('displayValue').textContent = "Hello, " + name + "!";
+        }
+    </script>
+</body>
+</html>
