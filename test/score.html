@@ -7,7 +7,7 @@
     <title>My Flappy Bird Score!</title>
     <meta property="og:title" content="My Flappy Bird Score!">
     <meta property="og:description" id="og-description" content="">
-    <meta property="og:image" content="https://freeonlineretrogames.com/flappybird/assets/flappybird.png">
+    <meta property="og:image" id="og-image" content="">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -148,15 +148,44 @@
             const score = params.get('score');
             const scoreElement = document.getElementById('scoreValue');
             const ogDescription = document.getElementById('og-description');
+            const ogImage = document.getElementById('og-image');
             
             if (score) {
                 scoreElement.textContent = score;
                 const newDescription = `My Flappy Bird score is ${score}. How high can you get?`;
                 ogDescription.setAttribute('content', newDescription);
+                
+                // Create a dynamic SVG image
+                const svgImage = encodeURIComponent(`
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+                        <style>
+                            .title { font: bold 60px 'Press Start 2P', cursive; fill: white; text-shadow: 4px 4px 0 black; text-anchor: middle; }
+                            .score-label { font: bold 40px 'Press Start 2P', cursive; fill: white; text-shadow: 4px 4px 0 black; text-anchor: middle; }
+                            .score-value { font: bold 120px 'Press Start 2P', cursive; fill: #FF6B6B; text-shadow: 6px 6px 0 black; text-anchor: middle; }
+                            .play-text { font: 30px 'Press Start 2P', cursive; fill: white; text-shadow: 2px 2px 0 black; text-anchor: middle; }
+                        </style>
+                        <rect width="100%" height="100%" fill="url(#grad)" />
+                        <defs>
+                            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <text x="600" y="200" class="title">My Flappy Bird Score</text>
+                        <text x="600" y="320" class="score-label">I scored:</text>
+                        <text x="600" y="460" class="score-value">${score}</text>
+                        <text x="600" y="550" class="play-text">Can you beat my score?</text>
+                    </svg>
+                `).replace(/"/g, "'");
+
+                // Set the og:image meta tag with the new SVG data URL
+                ogImage.setAttribute('content', 'data:image/svg+xml,' + svgImage);
             } else {
                 scoreElement.textContent = 'N/A';
                 const newDescription = `I just played Flappy Bird! Can you beat my score?`;
                 ogDescription.setAttribute('content', newDescription);
+                // Fallback to the default image if no score is provided
+                ogImage.setAttribute('content', 'https://freeonlineretrogames.com/flappybird/assets/flappybird.png');
             }
         });
     </script>
