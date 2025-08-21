@@ -143,15 +143,11 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            const score = params.get('score');
-            const scoreElement = document.getElementById('scoreValue');
+        function updateMetaTags(score) {
             const ogDescription = document.getElementById('og-description');
             const ogImage = document.getElementById('og-image');
             
             if (score) {
-                scoreElement.textContent = score;
                 const newDescription = `My Flappy Bird score is ${score}. How high can you get?`;
                 ogDescription.setAttribute('content', newDescription);
                 
@@ -181,13 +177,33 @@
                 // Set the og:image meta tag with the new SVG data URL
                 ogImage.setAttribute('content', 'data:image/svg+xml,' + svgImage);
             } else {
-                scoreElement.textContent = 'N/A';
                 const newDescription = `I just played Flappy Bird! Can you beat my score?`;
                 ogDescription.setAttribute('content', newDescription);
                 // Fallback to the default image if no score is provided
                 ogImage.setAttribute('content', 'https://freeonlineretrogames.com/flappybird/assets/flappybird.png');
             }
-        });
+        }
+
+        // Check for bot user agents and execute the script immediately
+        if (/bot|crawler|facebookexternalhit|pinterest|whatsapp|linkedin/i.test(navigator.userAgent)) {
+            const params = new URLSearchParams(window.location.search);
+            const score = params.get('score');
+            updateMetaTags(score);
+        } else {
+            // For normal users, wait for the DOM to be ready
+            document.addEventListener('DOMContentLoaded', () => {
+                const params = new URLSearchParams(window.location.search);
+                const score = params.get('score');
+                const scoreElement = document.getElementById('scoreValue');
+                
+                if (score) {
+                    scoreElement.textContent = score;
+                } else {
+                    scoreElement.textContent = 'N/A';
+                }
+                updateMetaTags(score);
+            });
+        }
     </script>
 </body>
 
